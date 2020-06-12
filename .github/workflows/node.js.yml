@@ -24,10 +24,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: install and build
+    - name: install
       run: |
         make install
-        make build
     - name: lint
       run: |
         make lint
