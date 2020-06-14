@@ -1,5 +1,5 @@
-import getRandomNumber from '../../utils.js';
-import createGame from '../index';
+import getRandomNumber from '../utils.js';
+import createGame from '../index.js';
 
 const isEven = (number) => number % 2 === 0;
 
@@ -9,7 +9,7 @@ const useGameData = () => {
   const randomNumber = getRandomNumber();
   const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
 
-  return { question: randomNumber, correctAnswer };
+  return [randomNumber, correctAnswer];
 };
 
 export default createGame(useGameData, description);

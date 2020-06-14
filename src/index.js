@@ -3,13 +3,13 @@ import getUserName from './cli.js';
 
 let correctAnswers = 0;
 
-export default (useGameData, description) => {
+export default (useGameData, description) => () => {
   const userName = getUserName();
 
   console.log(description);
 
   while (correctAnswers !== 3) {
-    const { question, correctAnswer } = useGameData();
+    const [question, correctAnswer] = useGameData();
 
     console.log(`Question: ${question}`);
 
@@ -20,8 +20,10 @@ export default (useGameData, description) => {
       correctAnswers += 1;
     } else {
       correctAnswers = 0;
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}"`);
       console.log(`Let's try again, ${userName}`);
     }
   }
+
   console.log(`Congratulations, ${userName}`);
 };
