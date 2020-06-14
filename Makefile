@@ -1,3 +1,6 @@
+brain-games:
+	node src/bin/brain-games.js
+
 install:
 	npm install
 
