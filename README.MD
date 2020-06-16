@@ -1,5 +1,5 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
-![Node.js CI](https://github.com/konstantinoff/frontend-project-lvl1/workflows/Node.js%20CI/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/fc95cfd7f6dcfe02b503/maintainability)](https://codeclimate.com/github/konstantinoff/frontend-project-lvl1/maintainability)
+[![Node.js CI](https://github.com/konstantinoff/frontend-project-lvl1/workflows/Node.js%20CI/badge.svg)](https://github.com/konstantinoff/frontend-project-lvl1)
 
 ## brain-games
 

@@ -1,15 +1,14 @@
 import readlineSync from 'readline-sync';
-import getUserName from './cli.js';
 
-let correctAnswers = 0;
-
-export default (useGameData, description) => () => {
-  const userName = getUserName();
+export default (getGameData, description) => () => {
+  console.log('Welcome to the Brain Games');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
 
   console.log(description);
 
-  while (correctAnswers !== 3) {
-    const [question, correctAnswer] = useGameData();
+  for (let i = 0; i < 3; i += 1) {
+    const [question, correctAnswer] = getGameData();
 
     console.log(`Question: ${question}`);
 
@@ -17,11 +16,10 @@ export default (useGameData, description) => () => {
 
     if (userAnswer === correctAnswer) {
       console.log('Correct!');
-      correctAnswers += 1;
     } else {
-      correctAnswers = 0;
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}"`);
       console.log(`Let's try again, ${userName}`);
+      return;
     }
   }
 

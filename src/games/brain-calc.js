@@ -13,7 +13,7 @@ const getRandomOperator = () => operators[getRandomNumber(0, operators.length - 
 
 const description = 'What is the result of the expression?';
 
-const useGameData = () => {
+const getGameData = () => {
   const secondNumber = getRandomNumber(0, 10);
   const firstNumber = getRandomNumber(0, 100);
   const operator = getRandomOperator();
@@ -22,4 +22,4 @@ const useGameData = () => {
   return [question, correctAnswer];
 };
 
-export default createGame(useGameData, description);
+export default createGame(getGameData, description);

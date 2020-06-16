@@ -14,10 +14,10 @@ const isPrime = (num) => {
 
 const fiveHundredthPrimeNumber = 3571;
 
-const useGameData = () => {
+const getGameData = () => {
   const number = getRandomNumber(0, fiveHundredthPrimeNumber);
   const correctAnswer = isPrime(number) ? 'yes' : 'no';
   return [number, correctAnswer];
 };
 
-export default createGame(useGameData, description);
+export default createGame(getGameData, description);

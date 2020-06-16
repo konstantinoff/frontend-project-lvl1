@@ -1,41 +1,34 @@
 import getRandomNumber from '../utils.js';
 import createGame from '../index.js';
 
-const progressionLength = 10;
-
-const createProgression = () => {
-  const a1 = getRandomNumber();
-  const d = getRandomNumber();
-
+const createProgression = (firstElement, step, length) => {
   const progression = [];
+  progression.push(firstElement);
 
-  progression.push(a1);
-
-  for (let i = 1; i < progressionLength; i += 1) {
+  for (let i = 1; i < length; i += 1) {
     const previousElement = progression[i - 1];
-    const nextElement = previousElement + d;
-    progression.push(nextElement);
+    const currentElement = previousElement + step;
+    progression.push(currentElement);
   }
 
   return progression;
 };
 
-const hideRandomElementFromProgression = (progression) => {
-  const index = getRandomNumber(0, progressionLength - 1);
-  const element = String(progression[index]);
-  const updatedProgression = progression.slice();
-  updatedProgression[index] = '..';
-
-  return { element, updatedProgression };
-};
-
 const description = 'What number is missing in the progression?';
 
-const useGameData = () => {
-  const progression = createProgression();
-  const { element, updatedProgression } = hideRandomElementFromProgression(progression);
+const getGameData = () => {
+  const progressionLength = 10;
+  const step = getRandomNumber();
+  const firstElement = getRandomNumber();
+  const progression = createProgression(firstElement, step, progressionLength);
+
+  const HiddenElementIndex = getRandomNumber(0, progressionLength - 1);
+  const correctAnswer = String(progression[HiddenElementIndex]);
+  const updatedProgression = progression.slice();
+  updatedProgression[HiddenElementIndex] = '..';
   const question = updatedProgression.join(' ');
-  return [question, element];
+
+  return [question, correctAnswer];
 };
 
-export default createGame(useGameData, description);
+export default createGame(getGameData, description);
