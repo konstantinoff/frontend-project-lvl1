@@ -15,9 +15,9 @@ const isPrime = (num) => {
 const fiveHundredthPrimeNumber = 3571;
 
 const getGameData = () => {
-  const number = getRandomNumber(0, fiveHundredthPrimeNumber);
-  const correctAnswer = isPrime(number) ? 'yes' : 'no';
-  return [number, correctAnswer];
+  const question = getRandomNumber(0, fiveHundredthPrimeNumber);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
+  return [String(question), correctAnswer];
 };
 
 export default createGame(getGameData, description);

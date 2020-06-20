@@ -9,8 +9,8 @@ const getGameData = () => {
   const secondNumber = getRandomNumber();
   const firstNumber = getRandomNumber();
   const question = `${firstNumber} ${secondNumber}`;
-  const correctAnswer = String(getGCD(firstNumber, secondNumber));
-  return [question, correctAnswer];
+  const correctAnswer = getGCD(firstNumber, secondNumber);
+  return [question, String(correctAnswer)];
 };
 
 export default createGame(getGameData, description);
