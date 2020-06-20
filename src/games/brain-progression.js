@@ -7,7 +7,6 @@ const createProgression = (firstElement, step, length) => {
   const progression = [];
 
   for (let i = 0; i < length; i += 1) {
-    const previousElement = progression[i - 1];
     const currentElement = firstElement + i * step;
     progression.push(currentElement);
   }
